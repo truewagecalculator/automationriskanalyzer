@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Automation Risk Analyzer</title>
+  <meta name="description" content="Learn what Automation Risk Analyzer does, how it works, and what the results mean." />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/favicon.svg" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-name">AutomationRiskAnalyzer.com</span>
+      </a>
+      <nav class="nav">
+        <a href="/" class="nav-cta">Run Analyzer</a>
+        <a href="/learn/">Learn</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1>About Automation Risk Analyzer</h1>
+      <p class="subhead">
+        Automation Risk Analyzer helps you understand how automation and AI may change a job over time.
+        Enter a job title to see an estimated risk score, tasks most likely to be automated, skills that reduce risk,
+        and an approximate disruption timeline.
+      </p>
+
+      <h3>What this tool is (and isn’t)</h3>
+      <ul class="bullets">
+        <li><strong>It is</strong> a planning tool designed to help you think clearly about how work is evolving.</li>
+        <li><strong>It is not</strong> a prediction of layoffs, hiring decisions, or your personal career outcome.</li>
+        <li>Real-world risk varies by seniority, industry, company, region, and how your role is actually performed.</li>
+      </ul>
+
+      <h3>How the score works</h3>
+      <p class="subhead" style="margin-bottom:10px;">
+        Our estimates are derived from common task patterns across role families. Roles that are more repetitive, rules-driven,
+        and structured tend to be easier to automate. Roles requiring higher judgment, accountability, and human interaction
+        tend to change more slowly.
+      </p>
+      <ul class="bullets">
+        <li><strong>Automation Risk Score (0–100%)</strong> is an estimate of how much of the role’s task mix could be automated over time.</li>
+        <li><strong>Tasks likely to be automated</strong> highlights areas where tools often replace manual work first.</li>
+        <li><strong>Skills that reduce risk</strong> focuses on capabilities that remain valuable even as tools improve.</li>
+        <li><strong>Timeline estimate</strong> is a directional window for disruption phases (assist → partial automation → redesign).</li>
+      </ul>
+
+      <h3>Why we built this</h3>
+      <p class="subhead">
+        Most content about “AI replacing jobs” is generic, fear-driven, and non-interactive. This tool is designed to be practical:
+        it turns anxiety into an action plan by showing which skills and responsibilities remain resilient.
+      </p>
+
+      <h3>Feedback and corrections</h3>
+      <p class="subhead">
+        If you notice a missing job title or you want to suggest improvements to task/skill mappings, visit the
+        <a href="/contact.html">Contact</a> page.
+      </p>
+    </div>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> <a class="footer-link" href="/">AutomationRiskAnalyzer</a></div>
+      <div class="footer-links">
+        <a href="/learn/">Learn</a>
+        <a href="/learn/how-ai-is-changing-jobs.html">How AI Is Changing Jobs</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

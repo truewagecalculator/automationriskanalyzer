@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Automation Risk Analyzer</title>
+  <meta name="description" content="Enter a job title to estimate automation risk, tasks likely to be replaced, protective skills, and a disruption timeline." />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/favicon.svg" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-name">AutomationRiskAnalyzer.com</span>
+      </a>
+      <nav class="nav">
+        <a href="/" class="nav-cta">Run Analyzer</a>
+        <a href="/learn/">Learn</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="layout">
+      <!-- LEFT COLUMN (tool + results) -->
+      <div class="maincol">
+        <div class="card hero-card">
+          <h1>Is This Job Being Automated?</h1>
+          <p class="subhead">
+            Enter a job title to get an <strong>automation risk score</strong>, the <strong>tasks most likely to be replaced</strong>,
+            <strong>skills that reduce risk</strong>, and a <strong>timeline estimate</strong>.
+          </p>
+
+          <form id="analyzeForm" class="search" autocomplete="off">
+            <label class="sr-only" for="jobTitle">Job title</label>
+            <div class="search-row">
+              <input id="jobTitle" name="jobTitle" type="text" placeholder="Try: Accountant, Teacher, Sales Rep, Nurse…" />
+              <button id="analyzeBtn" type="submit">Analyze</button>
+            </div>
+
+            <div id="suggestions" class="suggestions" role="listbox" aria-label="Job suggestions"></div>
+
+            <div class="disclaimer">
+              Estimates are directional (not guarantees). Use this as a planning tool, not a prediction of your future.
+            </div>
+          </form>
+        </div>
+
+        <!-- Results stacked like TrueWageCalculator cards -->
+        <section id="results" class="results hidden" aria-live="polite">
+          <div class="card score-card">
+            <div class="card-header">
+              <h2 id="resultTitle">Results</h2>
+              <div id="bandPill" class="pill">—</div>
+            </div>
+
+            <div class="score-wrap">
+              <div class="score">
+                <div class="score-num" id="riskScore">—</div>
+                <div class="score-label">Automation Risk</div>
+              </div>
+              <div class="timeline">
+                <div class="timeline-label">Estimated disruption window</div>
+                <div class="timeline-value" id="timeline">—</div>
+                <div class="timeline-phase" id="timelinePhase">—</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button id="copyBtn" class="btn-secondary" type="button">Copy share text</button>
+              <a id="tweetBtn" class="btn-secondary" target="_blank" rel="noopener">Share</a>
+            </div>
+
+            <div class="fineprint" id="modelNote"></div>
+          </div>
+
+          <div class="card">
+            <h3>Tasks most likely to be automated</h3>
+            <div id="tasks" class="list"></div>
+          </div>
+
+          <div class="card card-tight">
+            <h3>Skills that reduce your risk</h3>
+            <ul id="skills" class="bullets"></ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN (sidebar) -->
+      <aside class="sidecol">
+        <div class="card side-card">
+          <div class="side-title">Try an example</div>
+          <div class="chip-row">
+            <button class="chip" data-preset="Accountant">Accountant</button>
+            <button class="chip" data-preset="Software Engineer">Software Engineer</button>
+            <button class="chip" data-preset="Truck Driver">Truck Driver</button>
+            <button class="chip" data-preset="Teacher">Teacher</button>
+            <button class="chip" data-preset="Registered Nurse">Registered Nurse</button>
+          </div>
+        </div>
+
+        <div class="card side-card">
+          <div class="side-title">How it works</div>
+          <ul class="side-list">
+            <li>We map the job to a role family</li>
+            <li>We estimate risk using task patterns</li>
+            <li>We show vulnerable tasks + protective skills</li>
+            <li>We give a practical disruption window</li>
+          </ul>
+          <div class="disclaimer" style="margin-top:10px;">
+            Tip: Try broad titles first (e.g., “Accountant”, “Teacher”, “Sales Representative”).
+          </div>
+        </div>
+
+        <div class="card side-card">
+          <div class="side-title">Shareable</div>
+          <ul class="side-list">
+            <li>Compare jobs with friends</li>
+            <li>Discuss which tasks are changing</li>
+            <li>Use skills as a “next steps” plan</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> <a class="footer-link" href="/">AutomationRiskAnalyzer</a></div>
+      <div class="footer-links">
+        <a href="/learn/">Learn</a>
+        <a href="/learn/how-ai-is-changing-jobs.html">How AI Is Changing Jobs</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
