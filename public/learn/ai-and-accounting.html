@@ -12,20 +12,41 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div class="container topbar-inner">
-    <a class="brand" href="/">
+<header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
       <span class="brand-name">AutomationRiskAnalyzer.com</span>
-    </a>
-    <nav class="nav">
-      <a href="/">Run Analyzer</a>
-      <a href="/learn/">Learn</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/privacy.html">Privacy</a>
-    </nav>
-  </div>
-</header>
+      </a>
+        <!-- Desktop nav -->
+        <nav class="nav nav-desktop" aria-label="Primary">
+        <a href="/">Run Analyzer</a>
+        <a href="/learn/">Learn</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button class="nav-toggle" type="button"
+                aria-label="Open menu"
+                aria-controls="mobileMenu"
+                aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+      <!-- Mobile dropdown menu -->
+      <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+          <a href="/">Run Analyzer</a>
+          <a href="/learn/">Learn</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+      </div>
+ </header>
 
 <main class="container">
 
@@ -222,24 +243,27 @@
   </div>
 
   <footer class="footer">
-    <div>
-      © <span id="year"></span>
-      <a class="footer-link" href="/">AutomationRiskAnalyzer</a>
-    </div>
-    <div class="footer-links">
-      <a href="/learn/">Learn</a>
-      <a href="/learn/how-ai-is-changing-jobs.html">How AI Is Changing Jobs</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/contact.html">Contact</a>
-    </div>
-  </footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span>
+          <a href="/" class="footer-brand">AutomationRiskAnalyzer.com</a>
+        </div>
+        <div class="footer-links">
+          <a href="/learn/">Learn</a>
+          <a href="/learn/how-ai-is-changing-jobs.html">How AI Is Changing Jobs</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
 
 </main>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
+  <script src="/site.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>
