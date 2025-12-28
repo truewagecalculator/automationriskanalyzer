@@ -3,11 +3,25 @@
    Safe to include on all pages (it exits early if analyzer elements aren't present).
 */
 
+// ===== Google Analytics Safe Helper =====
+function trackEvent(eventName, params = {}) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
+  }
+}
+
 (() => {
   const $ = (id) => document.getElementById(id);
 
   const form = $("analyzeForm");
   const jobTitleInput = $("jobTitle");
+  if (jobTitleInput) {
+    jobTitleInput.addEventListener("focus", () => {
+      trackEvent("tool_start", {
+        tool: "automation_risk_analyzer"
+      });
+    }, { once: true });
+  }
   const suggestionsEl = $("suggestions");
   const resultsEl = $("results");
 
@@ -100,6 +114,11 @@
 
   document.querySelectorAll(".chip").forEach((chip) => {
     chip.addEventListener("click", () => {
+      trackEvent("preset_selected", {
+        tool: "automation_risk_analyzer",
+        preset: chip.dataset.preset || "unknown"
+      });
+
       jobTitleInput.value = chip.dataset.preset || "";
       clearSuggestions();
       form.requestSubmit();
@@ -180,8 +199,13 @@
     e.preventDefault();
     clearSuggestions();
 
-    const jobTitle = jobTitleInput.value.trim();
-    if (!jobTitle) return;
+      const jobTitle = jobTitleInput.value.trim();
+      if (!jobTitle) return;
+
+    trackEvent("calculation_run", {
+      tool: "automation_risk_analyzer",
+      mode: typeof selectedMode !== "undefined" ? selectedMode : "unknown"
+    });
 
     if (analyzeBtn) {
       analyzeBtn.disabled = true;
